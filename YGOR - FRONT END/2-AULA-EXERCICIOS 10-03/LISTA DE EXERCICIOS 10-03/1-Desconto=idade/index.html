@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout com Desconto</title>
+</head>
+
+<body>
+
+<h2>Sistema de Checkout</h2>
+
+<label>Valor do Produto:</label>
+<input type="number" id="valor" placeholder="Digite o valor">
+<br><br>
+
+<label>Idade do Cliente:</label>
+<input type="number" id="idade" placeholder="Digite a idade">
+<br><br>
+
+<button onclick="calcularCheckout()">Calcular</button>
+
+<h3 id="resultado"></h3>
+
+<script>
+function calcularCheckout() {
+
+    let valorProduto = parseFloat(document.getElementById("valor").value);
+    let idade = parseInt(document.getElementById("idade").value);
+
+    let desconto;
+
+    if (idade >= 60) {
+        desconto = 0.15;
+    } else {
+        desconto = 0.05;
+    }
+
+    let valorFinal = valorProduto - (valorProduto * desconto);
+
+    document.getElementById("resultado").innerText =
+        "Valor final: R$ " + valorFinal.toFixed(2);
+}
+</script>
+
+</body>
+</html>
